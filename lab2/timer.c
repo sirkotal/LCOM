@@ -34,10 +34,23 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
   return util_sys_inb(TIMER_0 + timer, st);
 }
 
-int (timer_display_conf)(uint8_t timer, uint8_t st,
-                        enum timer_status_field field) {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
+int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
+  union timer_status_field_val val;
 
-  return 1;
+  switch(field) {
+      case tsf_all:
+        val.byte = st;
+        break;
+      case tsf_initial:
+        val.in_mode = (st & (TIMER_RB_COUNT_ | TIMER_RB_STATUS_)) >> 4;
+        break;
+      case tsf_mode:
+        val.count_mode = (st & (BIT(3) | BIT(2) | BIT(1))) >> 1;
+        break;
+      case tsf_base:
+        val.bcd = st & BIT(0);
+        break;
+  }
+
+  return timer_print_config(timer, field, val);
 }
