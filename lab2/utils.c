@@ -4,20 +4,15 @@
 #include <stdint.h>
 
 int(util_get_LSB)(uint16_t val, uint8_t *lsb) {
-  uint16_t mask = 0b1; 
+  uint16_t mask = 1; 
 
-  if (val & mask) {
-    *lsb = 0b1;
-  }
-  else {
-    *lsb = 0b0;
-  }
+  *lsb = val & mask;
 
   return 0;
 }
 
 int(util_get_MSB)(uint16_t val, uint8_t *msb) {
-  uint16_t mask = (0b1 << 15);
+  uint16_t mask = (1 << 15);
 
   *msb = val & mask;
 
