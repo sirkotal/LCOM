@@ -112,6 +112,13 @@ int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field fiel
         break;
       case tsf_mode:
         conf.count_mode = (st & (BIT(3) | BIT(2) | BIT(1))) >> 1;
+        if (conf.count_mode == 6) {
+          conf.count_mode = 2;
+        }
+        else if (conf.count_mode == 7) {
+          conf.count_mode = 3;
+        }
+
         break;
       case tsf_base:
         conf.bcd = st & BIT(0);
