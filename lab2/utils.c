@@ -22,3 +22,14 @@ int(util_get_MSB)(uint16_t val, uint8_t *msb) {
 int (util_sys_inb)(int port, uint8_t *value) {
   return sys_inb(port, (uint32_t*) value);
 }
+
+uint16_t (bin_to_bcd)(uint16_t bin) {
+  uint16_t bcd = 0;
+
+  while (bin > 0) {
+    bcd = (bcd << 4) + (bin % 10);
+    bin /= 10;
+  }
+
+  return bcd;
+}

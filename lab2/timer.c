@@ -44,6 +44,10 @@ int (timer_get_conf)(uint8_t timer, uint8_t *st) {
 }
 
 int (timer_display_conf)(uint8_t timer, uint8_t st, enum timer_status_field field) {
+  if (timer > 2) {
+    return FAIL;
+  }
+  
   union timer_status_field_val conf;
 
   switch(field) {
