@@ -44,7 +44,7 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   uint8_t ctrl_word = (ctrl_timer | TIMER_LSB_MSB | (st & (BIT(3) | BIT(2) | BIT(1))) | (st & BIT(0)));
 
   if (sys_outb(TIMER_CTRL, ctrl_word)) {
-    return 1;
+    return FAIL;
   }
 
   uint8_t freq_lsb;
@@ -54,16 +54,14 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   util_get_MSB(timer_freq, &freq_msb);
 
   if (sys_outb(TIMER_0 + timer, freq_lsb)) {
-    return 1;
+    return FAIL;
   }
 
   if (sys_outb(TIMER_0 + timer, freq_msb)) {
-    return 1;
+    return FAIL;
   }
 
-  return 0;
-
-
+  return SUCCESS;
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
