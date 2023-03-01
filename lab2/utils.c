@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 int(util_get_LSB)(uint16_t val, uint8_t *lsb) {
-  uint16_t mask = 1; 
+  uint16_t mask = 0x00FF; 
 
   *lsb = val & mask;
 
@@ -12,9 +12,9 @@ int(util_get_LSB)(uint16_t val, uint8_t *lsb) {
 }
 
 int(util_get_MSB)(uint16_t val, uint8_t *msb) {
-  uint16_t mask = (1 << 15);
+  uint16_t mask = 0xFF00;
 
-  *msb = val & mask;
+  *msb = (val & mask) >> 8;
 
   return 0;
 }
