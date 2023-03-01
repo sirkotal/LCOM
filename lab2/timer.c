@@ -5,6 +5,9 @@
 
 #include "i8254.h"
 
+#define FAIL 1
+#define SUCCESS 0
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   return 1;
 }
@@ -29,7 +32,13 @@ void (timer_int_handler)() {
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
-  sys_outb(TIMER_CTRL, TIMER_RB_CMD | TIMER_RB_SEL(timer) | TIMER_RB_COUNT_);
+  if (timer > 2) {
+    return FAIL;
+  }
+
+  if (sys_outb(TIMER_CTRL, TIMER_RB_CMD | TIMER_RB_SEL(timer) | TIMER_RB_COUNT_)) {
+    return FAIL;
+  }
   
   return util_sys_inb(TIMER_0 + timer, st);
 }
