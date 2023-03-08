@@ -11,6 +11,17 @@
 int timer_hook_id = 0;
 int timer_int_counter = 0;
 
+uint16_t (bin_to_bcd)(uint16_t bin) {
+  uint16_t bcd = 0;
+
+  while (bin > 0) {
+    bcd = (bcd << 4) + (bin % 10);
+    bin /= 10;
+  }
+
+  return bcd;
+}
+
 
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   if (timer > 2) {
