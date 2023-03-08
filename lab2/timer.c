@@ -8,6 +8,10 @@
 #define FAIL 1
 #define SUCCESS 0
 
+int timer_hook_id = 0;
+int timer_int_counter = 0;
+
+
 int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   if (timer > 2) {
     return FAIL;
@@ -30,7 +34,6 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 
   if (st & BIT(0)) {
     timer_freq = bin_to_bcd(timer_freq);
-    return FAIL;
   }
 
   uint8_t ctrl_timer; 
@@ -65,21 +68,20 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
 }
 
 int (timer_subscribe_int)(uint8_t *bit_no) {
-    /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  *bit_no = BIT(timer_hook_id);
+  
+  if (sys_irqsetpolicy(TIMER0_IRQ, IRQ_REENABLE, &timer_hook_id)) {
+    return FAIL;
+  }
+  return SUCCESS;
 }
 
 int (timer_unsubscribe_int)() {
-  /* To be implemented by the students */
-  printf("%s is not yet implemented!\n", __func__);
-
-  return 1;
+  return sys_irqrmpolicy(&timer_hook_id);
 }
 
 void (timer_int_handler)() {
-  return FAIL;
+  timer_int_counter++;
 }
 
 int (timer_get_conf)(uint8_t timer, uint8_t *st) {
