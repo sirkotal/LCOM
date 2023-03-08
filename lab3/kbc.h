@@ -3,7 +3,6 @@
 
 #include <minix/sysutil.h>
 #include "i8042.h"
-#include "i8254.h"
 #include <lcom/lcf.h>
 
 int (read_KBC_status)(uint8_t* status);
