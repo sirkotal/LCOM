@@ -36,10 +36,10 @@ int (timer_set_frequency)(uint8_t timer, uint32_t freq) {
   }
 
   /*max freq is 0xFFFF for binary count, 0x9999 for BCD */
-  if (freq < TIMER_FREQ / 0xFFFF) {
+  if ((st & BIT(0)) && freq < TIMER_FREQ / 0x9999) {
     return FAIL;
   } 
-  else if ((st & BIT(0)) && freq < TIMER_FREQ / 0x9999) {
+  else if (freq < TIMER_FREQ / 0xFFFF) {
     return FAIL;
   }
 
