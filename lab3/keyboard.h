@@ -1,17 +1,26 @@
 #ifndef _LCOM_KEYBOARD_H_
 #define _LCOM_KEYBOARD_H_
 
-#include <minix/sysutil.h>
 #include <lcom/lcf.h>
-#include "i8042.h"
-#include "kbc.h"
+#include <stdint.h>
 
-int (keyboard_subscribe_interrupts)(uint8_t *bit_no);
 
-int (keyboard_unsubscribe_interrupts)();
+#define ESC_BREAK_CODE    0x81 // 0x81 is the break code of the ESC key
+#define TWO_BYTE_CODE     0xE0 // 0xE0 is the first byte of a two byte code
 
-void (kbc_ih)();
 
-int (keyboard_restore)();
+int (KBC_read_data)(uint8_t *data);
 
-#endif
+int (read_KBC_command)(uint8_t *commandByte);
+
+int (write_KBC_command)(uint8_t commandByte);
+
+int (KBC_subscribe_ints)(uint8_t *bit_no);
+
+int (KBC_unsubscribe_ints)();
+
+int (KBC_int_handler)();
+
+int (keyboard_enable_ints)();
+
+#endif /* _LCOM_KEYBOARD_H_ */
