@@ -128,9 +128,74 @@ int(kbd_test_poll)() {
 
 }
 
-int(kbd_test_timed_scan)(uint8_t n) {
-  /* To be completed by the students */
-  printf("%s is not yet implemented!\n", __func__);
+extern int timer_int_counter;
 
-  return 1;
+int(kbd_test_timed_scan)(uint8_t n) {
+  int r, ipc_status;
+  message msg;
+  uint8_t KBD_bit_no;
+  uint8_t timer_bit_no;
+
+  if (KBC_subscribe_ints(&KBD_bit_no)) {
+    return FAIL;
+  }
+
+  if (timer_subscribe_int(&timer_bit_no)) {
+    return FAIL;
+  }
+
+  uint8_t bytes[2];
+  int index = 0;
+
+  while(scancode != ESC_BREAK_CODE && (timer_int_counter/60) != n) {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */		
+          if (msg.m_notify.interrupts & timer_bit_no) {
+            timer_int_handler();
+          }
+          if (msg.m_notify.interrupts & KBD_bit_no) { /* subscribed interrupt */
+            if (KBC_int_handler()) {
+              return FAIL;
+            }
+
+            if (scancode == TWO_BYTE_CODE) {
+              bytes[index] = scancode;
+              index++;
+              continue;
+            }
+
+            bytes[index] = scancode;
+            bool make = !(scancode & BIT(7));
+
+            if (kbd_print_scancode(make, index + 1, bytes)) {
+              return FAIL;
+            }
+            
+            index = 0;
+            timer_int_counter = 0;
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */	
+      }
+    } else { /* received a standard message, not a notification */
+        /* no standard messages expected: do nothing */
+    }
+  }
+
+  if (KBC_unsubscribe_ints()) {
+    return FAIL;
+  }
+
+  if (timer_unsubscribe_int()) {
+    return FAIL;
+  }
+
+  return kbd_print_no_sysinb(sys_count);
 }
