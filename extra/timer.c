@@ -156,7 +156,7 @@ int (pp_test_alarm)(int timer, int interval, enum l3223_time_units unit) {
         case HARDWARE: /* hardware interrupt notification */				
           if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt */
             uint8_t status;
-            if (util_sys_inb(TIMER_0, &status)) {
+            if (util_sys_inb(TIMER_CTRL, &status)) {
                 return FAIL;
             }
             if (status & BIT(timer)) {

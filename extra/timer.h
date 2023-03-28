@@ -9,11 +9,11 @@
 
 #define TIMER_CTRL 0x23
 
-#define IRQ_LINE 10
+#define IRQ_LINE 10 // in i8254, Timer 0 would be 0 (this is an "imaginary" device though)
 
 #define BIT(n) (1 << n)
 
-// Writing to port 0x23 writes the control register
+// Writing to port 0x23 writes to the Control Register (0x43 in i8254)
 // Timer selection - bits 7 e 6
 #define SEL_TIMER0 0x00
 #define SEL_TIMER1 BIT(6)
@@ -47,6 +47,6 @@ int (timer_config)(int timer, int interval, enum l3223_time_units unit);
 
 int (pp_test_alarm)(int timer, int interval, enum l3223_time_units unit);
 
-void pp_print_alarm();
+void (pp_print_alarm)();
 
 #endif /* _LCOM_ALARM_H */
