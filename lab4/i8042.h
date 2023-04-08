@@ -2,6 +2,7 @@
 #define _LCOM_I8042_H_
 
 #define IRQ_KEYBOARD    1
+#define IRQ_MOUSE       12
 
 /* I/O port addresses */
 
