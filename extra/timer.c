@@ -112,8 +112,11 @@ int (timer_config)(int timer, int interval, enum l3223_time_units unit) {
         return FAIL;
     }
 
-    uint8_t mval = get_MSB(interval, &mval);
-    uint8_t lval = get_LSB(interval, &lval);
+    uint8_t mval;
+    uint8_t lval;
+
+    get_MSB(interval, &mval);
+    get_LSB(interval, &lval);
 
     if (sys_outb(TIMER_0+timer, lval)) {
         return FAIL;
