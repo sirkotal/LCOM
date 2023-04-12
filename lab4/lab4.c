@@ -3,6 +3,15 @@
 
 #include <stdint.h>
 #include <stdio.h>
+#include "mouse.h"
+#include "keyboard.h"
+#include "i8042.h"
+
+#define FAIL 1
+#define SUCCESS 0
+
+extern uint8_t byte_index = 0;     
+extern struct packet mouse_packet;      
 
 // Any header files included below this line should have been created by you
 
@@ -32,9 +41,52 @@ int main(int argc, char *argv[]) {
 
 
 int (mouse_test_packet)(uint32_t cnt) {
-    /* To be completed */
-    printf("%s(%u): under construction\n", __func__, cnt);
-    return 1;
+  uint8_t bit_no;
+  if (mouse_subscribe_int(&bit_no)) {
+    return FAIL;
+  }
+
+  int ipc_status;
+  message msg;
+  int r;
+
+  if (mouse_enable_data_reporting()) {
+    return FAIL;
+  }
+
+  while (cnt) {
+
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+        printf("driver_receive failed with: %d", r);
+        continue;
+    }
+    
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */				
+          if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt */
+            mouse_int_handler();
+            mouse_check_bytes();
+
+            if (byte_index == 3) {                   
+              mouse_bytes_into_packet();               
+              mouse_print_packet(&mouse_packet);    
+              byte_index = 0;
+              cnt--;
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */	
+      }
+    } 
+    else { /* received a standard message, not a notification */
+      /* no standard messages expected: do nothing */
+    }
+  }
+
+  return mouse_unsubscribe_int();
 }
 
 int (mouse_test_async)(uint8_t idle_time) {

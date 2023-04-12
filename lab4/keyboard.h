@@ -9,7 +9,7 @@
 #define TWO_BYTE_CODE     0xE0 // 0xE0 is the first byte of a two byte code
 
 
-int (KBC_read_data)(uint8_t *data);
+int (KBC_read_data)(uint8_t *data, uint8_t mouse_check);
 
 int (read_KBC_command)(uint8_t *commandByte);
 

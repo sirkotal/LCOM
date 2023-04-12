@@ -39,7 +39,7 @@ int (keyboard_enable_ints)() { //enable int
     return SUCCESS;
 }
 
-int (KBC_read_data)(uint8_t *data) {
+int (KBC_read_data)(uint8_t *data, uint8_t mouse_check) {
   uint8_t status;
   while (true) {
     if (util_sys_inb(KBD_STAT_REG, &status)) {
@@ -49,6 +49,10 @@ int (KBC_read_data)(uint8_t *data) {
     if (status & KBD_STAT_OBF) {
     // If there is an error, we need to read the byte from the output buffer
       if (status & (KBD_STAT_PARITY | KBD_STAT_TIMEOUT | KBD_STAT_AUX)) {
+        return FAIL;
+      }
+
+      if (mouse_check & !(status &status & KBD_STAT_AUX)) {
         return FAIL;
       }
 

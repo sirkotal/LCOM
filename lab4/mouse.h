@@ -6,12 +6,14 @@
 #include "i8042.h"
 #include "keyboard.h"
 
-int (mouse_subscribe_ints)(uint8_t *bit_no);
+int (mouse_subscribe_int)(uint8_t *bit_no);
 
-int (mouse_unsubscribe_ints)();
+int (mouse_unsubscribe_int)();
 
 int (mouse_int_handler)();
 
 void (mouse_check_bytes)();
+
+void (mouse_bytes_into_packet)();
 
 #endif /* _LCOM_MOUSE_H_ */
