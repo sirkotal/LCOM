@@ -39,7 +39,17 @@
 #define KBD_CMD_INT         BIT(0) /**< @brief Keyboard interrupt */
 
 #define WAIT_KBC        20000
-#define MAX_ATTEMPS     10
+#define MAX_ATTEMPTS     10
+#define KBC_IN_CMD      0x64
+#define KBC_OUT_CMD     0x60
+
+/* Mouse */
+
+#define DISABLE_DATA_REPORT 0xF5
+#define ENABLE_DATA_REPORT  0xF4
+#define ACK                 0xFA    
+#define NACK                0xFE
+#define WRITE_BYTE_MOUSE    0xD4
 
 /* Mouse Control Byte */
 #define MOUSE_Y_OVERFLOW      BIT(7)

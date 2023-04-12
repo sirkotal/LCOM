@@ -16,4 +16,6 @@ void (mouse_check_bytes)();
 
 void (mouse_bytes_into_packet)();
 
+int (mouse_write)(uint8_t command);
+
 #endif /* _LCOM_MOUSE_H_ */

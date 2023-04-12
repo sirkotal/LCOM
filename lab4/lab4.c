@@ -10,7 +10,7 @@
 #define FAIL 1
 #define SUCCESS 0
 
-extern uint8_t byte_index = 0;     
+extern uint8_t byte_index;     
 extern struct packet mouse_packet;      
 
 // Any header files included below this line should have been created by you
@@ -50,7 +50,7 @@ int (mouse_test_packet)(uint32_t cnt) {
   message msg;
   int r;
 
-  if (mouse_enable_data_reporting()) {
+  if (mouse_write(ENABLE_DATA_REPORT)) {
     return FAIL;
   }
 
@@ -86,6 +86,10 @@ int (mouse_test_packet)(uint32_t cnt) {
     }
   }
 
+  if (mouse_write(DISABLE_DATA_REPORT)) {
+    return FAIL;
+  }
+
   return mouse_unsubscribe_int();
 }
 
@@ -95,7 +99,7 @@ int (mouse_test_async)(uint8_t idle_time) {
     return 1;
 }
 
-int (mouse_test_gesture)() {
+int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
     /* To be completed */
     printf("%s: under construction\n", __func__);
     return 1;
