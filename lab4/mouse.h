@@ -12,4 +12,6 @@ int (mouse_unsubscribe_ints)();
 
 int (mouse_int_handler)();
 
+void (mouse_check_bytes)();
+
 #endif /* _LCOM_MOUSE_H_ */

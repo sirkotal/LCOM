@@ -43,7 +43,7 @@ int (KBC_read_data)(uint8_t *data) {
   uint8_t status;
   while (true) {
     if (util_sys_inb(KBD_STAT_REG, &status)) {
-      return 1;
+      return FAIL;
     }
 
     if (status & KBD_STAT_OBF) {

@@ -41,4 +41,14 @@
 #define WAIT_KBC        20000
 #define MAX_ATTEMPS     10
 
+/* Mouse Control Byte */
+#define MOUSE_Y_OVERFLOW      BIT(7)
+#define MOUSE_X_OVERFLOW      BIT(6)
+#define MOUSE_Y_SIGN          BIT(5)
+#define MOUSE_X_SIGN          BIT(4)
+#define CONTROL_BIT           BIT(3)
+#define MOUSE_MB              BIT(2)
+#define MOUSE_RB              BIT(1)
+#define MOUSE_LB              BIT(0)
+
 #endif /* _LCOM_I8042_H_ */
