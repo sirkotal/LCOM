@@ -4,65 +4,63 @@
 #define FAIL 1
 #define SUCCESS 0
 
-int kbc_hook_id = 1;
-uint8_t scancode = 0;
-
-int (KBC_read_data)(int port, uint8_t *data, bool mouse_check) {
+int read_KBC_output(uint8_t port, uint8_t *output, uint8_t mouse) {
   uint8_t status;
-
+    
   while (true) {
-    if (util_sys_inb(KBD_STAT_REG, &status)) {
+
+    if (util_sys_inb(KBC_STATUS_REG, &status)) {            
       return FAIL;
     }
 
-    if (status & KBD_STAT_OBF) {
-
-      if (util_sys_inb(port, data)) {
+    if ((status & BIT(0))) {
+      if(util_sys_inb(port, output)) {            
+        return FAIL;
+      }
+      
+      if((status & BIT(7))) {      
         return FAIL;
       }
 
-      // If there is an error, we need to read the byte from the output buffer
-      if (status & (KBD_STAT_PARITY | KBD_STAT_TIMEOUT)) {
+      if((status & BIT(6))) {                 
         return FAIL;
       }
 
-      if (mouse_check && !(status & KBD_STAT_AUX)) {
+      if (mouse && !(status & BIT(5))) {    
         return FAIL;
-      }
+      } 
 
-      if (!mouse_check && (status & KBD_STAT_AUX)) {
+      if (!mouse && (status & BIT(5))) {   
         return FAIL;
-      }
+      } 
 
       return SUCCESS;
-      // return util_sys_inb(KBD_OUT_BUF, data);
-    }  
+    }
+    
     tickdelay(micros_to_ticks(WAIT_KBC));
   }
-
+  
   return FAIL;
 }
 
-
-int (write_KBC_command)(int port, uint8_t commandByte) {
+int (write_KBC_command)(uint8_t port, uint8_t commandByte) {
     uint8_t status;
 
     while (true) {
-        if (util_sys_inb(KBD_STAT_REG, &status)){
-          return FAIL;
-        }
 
-        if ((status & KBD_STAT_IBF)){
-          tickdelay(micros_to_ticks(WAIT_KBC));
-          continue;
-        }
-        
+      if (util_sys_inb(KBC_STATUS_REG, &status)) {
+        return FAIL;
+      }
+
+      if ((status & FULL_IN_BUFFER) == 0) {
+
         if (sys_outb(port, commandByte)) {
           return FAIL;
         }
 
         return SUCCESS;
+      }
+        tickdelay(micros_to_ticks(WAIT_KBC));
     }
-    
     return FAIL;
 }

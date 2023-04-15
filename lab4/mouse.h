@@ -10,11 +10,11 @@ int (mouse_subscribe_int)(uint8_t *bit_no);
 
 int (mouse_unsubscribe_int)();
 
-int (mouse_int_handler)();
+void (mouse_int_handler)();
 
-// void (mouse_check_bytes)();
+void (mouse_check_bytes)();
 
-void (mouse_bytes_into_packet)();
+int (mouse_bytes_into_packet)();
 
 int (mouse_write)(uint8_t command);
 

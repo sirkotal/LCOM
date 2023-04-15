@@ -11,7 +11,7 @@
 #define SUCCESS 0
 
 extern uint8_t byte_index;     
-extern struct packet mouse_packet;      
+extern struct packet mouse_packet; 
 
 // Any header files included below this line should have been created by you
 
@@ -39,12 +39,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-void (mouse_ih)() {
-  mouse_int_handler();
-}
-
 int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
+  
   if (mouse_subscribe_int(&bit_no)) {
     return FAIL;
   }
@@ -70,10 +67,12 @@ int (mouse_test_packet)(uint32_t cnt) {
         case HARDWARE: /* hardware interrupt notification */				
           if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt */
             mouse_ih();
-            //mouse_check_bytes();
+            mouse_check_bytes();
 
-            if (byte_index == 3) {                   
-              mouse_bytes_into_packet();               
+            if (byte_index == 3) {   
+              if (mouse_bytes_into_packet()) {
+                return FAIL;
+              }                             
               mouse_print_packet(&mouse_packet);    
               byte_index = 0;
               cnt--;
@@ -97,10 +96,9 @@ int (mouse_test_packet)(uint32_t cnt) {
 }
 
 int (mouse_test_async)(uint8_t idle_time) {
-    /* To be completed */
-    printf("%s(%u): under construction\n", __func__, idle_time);
-    return 1;
+  return 1;
 }
+
 
 int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
     /* To be completed */
