@@ -24,14 +24,20 @@ int (mouse_unsubscribe_int)() {
 }
 
 int (mouse_int_handler)() {
-    if (KBC_read_data(KBD_OUT_BUF, &current_byte, 1)) {
+    if (KBC_read_data(KBD_OUT_BUF, &current_byte, true)) {
         return FAIL;
     }
+
+    if ((byte_index == 0 && (current_byte & BIT(3))) || byte_index > 0) {
+        mouse_packet.bytes[byte_index] = current_byte;
+        byte_index++;
+    }
+
 
     return SUCCESS;
 }
 
-void (mouse_check_bytes)() {
+/*void (mouse_check_bytes)() {
     // Control Byte - BIT 3 is active
     if (byte_index == 0 && (current_byte & CONTROL_BIT)) {
         packet[byte_index]= current_byte;
@@ -42,52 +48,44 @@ void (mouse_check_bytes)() {
         packet[byte_index] = current_byte;
         byte_index++;
     }
-}
+}*/
 
 void (mouse_bytes_into_packet)() {
-    for (int i = 0 ; i < 3 ; i++) {
-        mouse_packet.bytes[i] = packet[i];
-    }
+    mouse_packet.lb = mouse_packet.bytes[0] & MOUSE_LB;
+    mouse_packet.rb = mouse_packet.bytes[0] & MOUSE_RB;
+    mouse_packet.mb = mouse_packet.bytes[0] & MOUSE_MB;
 
-    mouse_packet.lb = packet[0] & MOUSE_LB;
-    mouse_packet.rb = packet[0] & MOUSE_RB;
-    mouse_packet.mb = packet[0] & MOUSE_MB;
-
-    if (packet[0] & MOUSE_X_SIGN) {
-        mouse_packet.delta_x = 0xFF00 | packet[1];
+    if (mouse_packet.bytes[0] & MOUSE_X_SIGN) {
+        mouse_packet.delta_x = 0xFF00 | mouse_packet.bytes[1];
     }
     else {
-        mouse_packet.delta_x = packet[1];
+        mouse_packet.delta_x = mouse_packet.bytes[1];
     }
 
-    if (packet[0] & MOUSE_Y_SIGN) {
-        mouse_packet.delta_y = 0xFF00 | packet[2];
+    if (mouse_packet.bytes[0] & MOUSE_Y_SIGN) {
+        mouse_packet.delta_y = 0xFF00 | mouse_packet.bytes[2];
     }
     else {
-        mouse_packet.delta_y = packet[2];
+        mouse_packet.delta_y = mouse_packet.bytes[2];
     }
 
-    mouse_packet.x_ov = packet[0] & MOUSE_X_OVERFLOW;
-    mouse_packet.y_ov = packet[0] & MOUSE_Y_OVERFLOW;
+    mouse_packet.x_ov = mouse_packet.bytes[0] & MOUSE_X_OVERFLOW;
+    mouse_packet.y_ov = mouse_packet.bytes[0] & MOUSE_Y_OVERFLOW;
 }
 
 int (mouse_write)(uint8_t command) {
 
-  uint8_t attempts = MAX_ATTEMPTS;
   uint8_t mouse_response;
 
   do {
-    attempts--;
 
-    if (write_KBC_command(KBC_IN_CMD, WRITE_BYTE_MOUSE)) return FAIL;
-    if (write_KBC_command(KBC_OUT_CMD, command)) return FAIL;
+    if (write_KBC_command(KBD_CMD_REG, WRITE_BYTE_MOUSE)) return FAIL;
+    if (write_KBC_command(KBD_IN_BUF, command)) return FAIL;
 
-    tickdelay(micros_to_ticks(WAIT_KBC));
-
-    if (util_sys_inb(KBC_OUT_CMD, &mouse_response)) return FAIL;
+    if (util_sys_inb(KBD_OUT_BUF, &mouse_response)) return FAIL;
     if (mouse_response == ACK) return SUCCESS;
 
-  } while (mouse_response != ACK && attempts);
+  } while (mouse_response != ACK);
 
   return FAIL;
 }

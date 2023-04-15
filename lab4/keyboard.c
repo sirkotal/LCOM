@@ -7,12 +7,10 @@
 int kbc_hook_id = 1;
 uint8_t scancode = 0;
 
-int (KBC_read_data)(int port, uint8_t *data, uint8_t mouse_check) {
+int (KBC_read_data)(int port, uint8_t *data, bool mouse_check) {
   uint8_t status;
 
-  uint8_t attempts = MAX_ATTEMPTS;
-
-  while (attempts) {
+  while (true) {
     if (util_sys_inb(KBD_STAT_REG, &status)) {
       return FAIL;
     }
@@ -40,7 +38,6 @@ int (KBC_read_data)(int port, uint8_t *data, uint8_t mouse_check) {
       // return util_sys_inb(KBD_OUT_BUF, data);
     }  
     tickdelay(micros_to_ticks(WAIT_KBC));
-    attempts--;
   }
 
   return FAIL;
@@ -49,23 +46,22 @@ int (KBC_read_data)(int port, uint8_t *data, uint8_t mouse_check) {
 
 int (write_KBC_command)(int port, uint8_t commandByte) {
     uint8_t status;
-    uint8_t attempts = MAX_ATTEMPTS;
 
-    while (attempts) {
+    while (true) {
         if (util_sys_inb(KBD_STAT_REG, &status)){
-            return FAIL;
+          return FAIL;
         }
 
-        if ((status & KBD_STAT_IBF) == 0){
-
-            if(sys_outb(port, commandByte)){
-                return FAIL;
-            }
-
-            return SUCCESS;
+        if ((status & KBD_STAT_IBF)){
+          tickdelay(micros_to_ticks(WAIT_KBC));
+          continue;
         }
-        tickdelay(micros_to_ticks(WAIT_KBC));
-        attempts--;
+        
+        if (sys_outb(port, commandByte)) {
+          return FAIL;
+        }
+
+        return SUCCESS;
     }
     
     return FAIL;

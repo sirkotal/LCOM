@@ -39,9 +39,6 @@
 #define KBD_CMD_INT         BIT(0) /**< @brief Keyboard interrupt */
 
 #define WAIT_KBC        20000
-#define MAX_ATTEMPTS     10
-#define KBC_IN_CMD      0x64
-#define KBC_OUT_CMD     0x60
 
 /* Mouse */
 

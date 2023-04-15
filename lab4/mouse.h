@@ -12,7 +12,7 @@ int (mouse_unsubscribe_int)();
 
 int (mouse_int_handler)();
 
-void (mouse_check_bytes)();
+// void (mouse_check_bytes)();
 
 void (mouse_bytes_into_packet)();
 

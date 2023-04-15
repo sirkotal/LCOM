@@ -39,6 +39,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+void (mouse_ih)() {
+  mouse_int_handler();
+}
 
 int (mouse_test_packet)(uint32_t cnt) {
   uint8_t bit_no;
@@ -66,8 +69,8 @@ int (mouse_test_packet)(uint32_t cnt) {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: /* hardware interrupt notification */				
           if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt */
-            mouse_int_handler();
-            mouse_check_bytes();
+            mouse_ih();
+            //mouse_check_bytes();
 
             if (byte_index == 3) {                   
               mouse_bytes_into_packet();               
