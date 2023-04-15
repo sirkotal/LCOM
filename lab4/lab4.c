@@ -13,6 +13,8 @@
 extern uint8_t byte_index;     
 extern struct packet mouse_packet; 
 
+extern int timer_int_counter;
+
 // Any header files included below this line should have been created by you
 
 int main(int argc, char *argv[]) {
@@ -96,7 +98,73 @@ int (mouse_test_packet)(uint32_t cnt) {
 }
 
 int (mouse_test_async)(uint8_t idle_time) {
-  return 1;
+  uint8_t seconds = 0;
+  uint8_t mouse_bit_no; 
+  uint8_t timer_bit_no;
+  uint16_t timer_frequency = sys_hz();
+
+  if (mouse_subscribe_int(&mouse_bit_no)) {
+    return FAIL;
+  }
+
+  if (timer_subscribe_int(&timer_bit_no)) {
+    return FAIL;
+  }
+
+  int ipc_status;
+  message msg;
+  //int r;
+
+  if (mouse_write(ENABLE_DATA_REPORT)) {
+    return FAIL;
+  }
+
+  while (seconds < idle_time) {
+
+    if (driver_receive(ANY, &msg, &ipc_status) != 0){
+      printf("Error");
+      continue;
+    }
+
+    if (is_ipc_notify(ipc_status)){
+      switch(_ENDPOINT_P(msg.m_source)){
+        case HARDWARE: 
+
+          if (msg.m_notify.interrupts & timer_bit_no) { /* subscribed interrupt */
+            timer_int_handler();
+            if (timer_int_counter % timer_frequency == 0) {
+              seconds++;
+            }
+          }
+
+          if (msg.m_notify.interrupts & mouse_bit_no) { /* subscribed interrupt */
+            mouse_ih();
+            mouse_check_bytes();
+
+            if (byte_index == 3) {   
+              if (mouse_bytes_into_packet()) {
+                return FAIL;
+              }                             
+              mouse_print_packet(&mouse_packet);    
+              byte_index = 0;
+            }
+
+            timer_int_counter = 0;
+            seconds = 0;
+          }
+      }
+    }
+  }
+
+  if (mouse_write(DISABLE_DATA_REPORT)) {
+    return FAIL;
+  }
+
+  if (timer_unsubscribe_int()) {
+    return FAIL;
+  }
+
+  return mouse_unsubscribe_int();
 }
 
 

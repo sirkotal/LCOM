@@ -60,7 +60,8 @@ int (write_KBC_command)(uint8_t port, uint8_t commandByte) {
 
         return SUCCESS;
       }
-        tickdelay(micros_to_ticks(WAIT_KBC));
+      
+      tickdelay(micros_to_ticks(WAIT_KBC));
     }
     return FAIL;
 }
