@@ -6,6 +6,7 @@
 #include "mouse.h"
 #include "keyboard.h"
 #include "i8042.h"
+#include "machine.h"
 
 #define FAIL 1
 #define SUCCESS 0
@@ -169,9 +170,66 @@ int (mouse_test_async)(uint8_t idle_time) {
 
 
 int (mouse_test_gesture)(uint8_t x_len, uint8_t tolerance) {
-    /* To be completed */
-    printf("%s: under construction\n", __func__);
-    return 1;
+  uint8_t bit_no;
+  
+  if (mouse_subscribe_int(&bit_no)) {
+    return FAIL;
+  }
+
+  struct mouse_ev* event;
+  uint16_t delta_x;
+  uint16_t delta_y;
+
+  state_machina state = START;
+
+  int ipc_status;
+  message msg;
+  int r;
+
+  if (mouse_write(ENABLE_DATA_REPORT)) {
+    return FAIL;
+  }
+
+  while (state != END) {
+
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) { 
+        printf("driver_receive failed with: %d", r);
+        continue;
+    }
+    
+    if (is_ipc_notify(ipc_status)) { /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */				
+          if (msg.m_notify.interrupts & bit_no) { /* subscribed interrupt */
+            mouse_ih();
+            mouse_check_bytes();
+
+            if (byte_index == 3) {   
+              if (mouse_bytes_into_packet()) {
+                return FAIL;
+              }              
+              event = mouse_detect_event(&mouse_packet);
+              handle_state(event, &state, x_len, tolerance, &delta_x, &delta_y);               
+              mouse_print_packet(&mouse_packet);    
+              byte_index = 0;
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */	
+      }
+    } 
+    else { /* received a standard message, not a notification */
+      /* no standard messages expected: do nothing */
+    }
+  }
+
+  if (mouse_write(DISABLE_DATA_REPORT)) {
+    return FAIL;
+  }
+
+  return mouse_unsubscribe_int();
 }
 
 int (mouse_test_remote)(uint16_t period, uint8_t cnt) {
