@@ -45,3 +45,37 @@ int (set_frame_buffer)(uint16_t mode) {
 
   return SUCCESS;
 }
+
+int (color_pixel)(uint16_t x, uint16_t y, uint32_t color) {
+  if(x > mode_info.XResolution || y > mode_info.YResolution) {
+    return FAIL;
+  }
+  
+  unsigned bytesPerPixel = (mode_info.BitsPerPixel + 7) / 8;
+
+  unsigned int index = (mode_info.XResolution * y + x) * bytesPerPixel;
+
+  if (memcpy(&frame_buffer[index], &color, bytesPerPixel) == NULL) {
+    return FAIL;
+  }
+
+  return SUCCESS;
+}
+
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color) {
+  for (unsigned i = 0 ; i < len ; i++) {
+      if (color_pixel(x+i, y, color)) {
+        return FAIL;
+      }
+  }   
+  return SUCCESS;
+}
+
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+  for(unsigned i = 0; i < height ; i++)
+    if (vg_draw_hline(x, y+i, width, color)) {
+      vg_exit();
+      return FAIL;
+    }
+  return SUCCESS;
+}
