@@ -20,92 +20,28 @@ int (KBC_unsubscribe_ints)() {
 }
 
 int (KBC_int_handler)() {
-    return KBC_read_data(&scancode);
+    return read_KBC_output(KBC_OUT_CMD, &scancode, 0);
 }
 
 int (keyboard_enable_ints)() { //enable int
     uint8_t commandByte;
 
-    if (read_KBC_command(&commandByte)) {
+    if (write_KBC_command(KBC_IN_CMD, KBC_READ_CMD)) {
+        return FAIL;
+    }         
+
+    if (read_KBC_output(KBC_OUT_CMD, &commandByte, 0)) {
         return FAIL;
     }
 
-    commandByte |= KBD_CMD_INT;
+    commandByte |= ENABLE_INT;  
 
-    if (write_KBC_command(commandByte)) {
+    if (write_KBC_command(KBC_IN_CMD, KBC_WRITE_CMD)) {
+        return FAIL;
+    } 
+
+    if (write_KBC_command(KBC_WRITE_CMD, commandByte)) {
         return FAIL;
     }
-
     return SUCCESS;
-}
-
-int (KBC_read_data)(uint8_t *data) {
-  uint8_t status;
-  while (true) {
-    if (util_sys_inb(KBD_STAT_REG, &status)) {
-      return 1;
-    }
-
-    if (status & KBD_STAT_OBF) {
-    // If there is an error, we need to read the byte from the output buffer
-      if (status & (KBD_STAT_PARITY | KBD_STAT_TIMEOUT | KBD_STAT_AUX)) {
-        return FAIL;
-      }
-
-      return util_sys_inb(KBD_OUT_BUF, data);
-    }  
-    tickdelay(micros_to_ticks(WAIT_KBC));
-  }
-
-  return FAIL;
-}
-
-
-int (write_KBC_command)(uint8_t commandByte) {
-    for (int i = 0; i < 3; i++) {
-        uint8_t status;
-        if (util_sys_inb(KBD_STAT_REG, &status)) {
-            return FAIL;
-        }
-
-        if (status & (KBD_STAT_PARITY | KBD_STAT_TIMEOUT | KBD_STAT_AUX)) {
-            return FAIL;
-        }
-
-        // If the input buffer is full, we need to wait
-        if (status & KBD_STAT_IBF) {
-            tickdelay(micros_to_ticks(WAIT_KBC));
-            continue;
-        }
-
-        // If the input buffer is empty, we can write the command byte
-        if (sys_outb(KBD_CMD_REG, commandByte)) {
-            return FAIL;
-        }
-
-        break;
-    }
-
-    if (sys_outb(KBD_CMD_REG, KBD_CMD_WRITE_CMD)) {
-        return FAIL;
-    }
-
-    if (sys_outb(KBD_IN_BUF, commandByte)) {
-        return FAIL;
-    }
-
-    return SUCCESS;
-
-}
-
-int (read_KBC_command)(uint8_t *command_byte) {
-  if (write_KBC_command(KBD_CMD_READ_CMD)) {
-    return FAIL;
-  }
-
-  if (util_sys_inb(KBD_OUT_BUF, command_byte)) {
-    return FAIL;
-  }
-
-  return SUCCESS;
 }
