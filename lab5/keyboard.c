@@ -1,5 +1,6 @@
 #include "i8042.h"
 #include "keyboard.h"
+#include "kbc.h"
 
 #define FAIL 1
 #define SUCCESS 0

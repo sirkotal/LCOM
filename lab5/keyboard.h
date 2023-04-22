@@ -3,7 +3,7 @@
 
 #include <lcom/lcf.h>
 #include <stdint.h>
-#include "kbc.h"
+#include "i8042.h"
 
 
 #define ESC_BREAK_CODE    0x81 // 0x81 is the break code of the ESC key

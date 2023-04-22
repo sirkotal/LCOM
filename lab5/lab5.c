@@ -80,6 +80,30 @@ int (video_test_init)(uint16_t mode, uint8_t delay) {
 }
 
 int (video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color) {
+  uint32_t next_color;
+
+  if (set_frame_buffer(mode)) {
+    return FAIL;
+  }
+
+  if (set_graphic_mode(mode)) {
+    return FAIL;
+  }
+
+  if (mode_info.BitsPerPixel == 32) {
+    next_color = color;
+  } else {
+    next_color = color & (BIT(mode_info.BitsPerPixel) - 1);
+  }
+
+  if (vg_draw_rectangle(x, y, width, height, next_color)) {
+    return FAIL;
+  }
+
+  if (waiting_escape()) {
+    return FAIL;
+  }
+
   if (vg_exit()) {
     return FAIL;
   }
