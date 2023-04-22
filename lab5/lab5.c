@@ -12,6 +12,7 @@
 #define SUCCESS 0
 
 extern uint8_t scancode;
+extern vbe_mode_info_t mode_info;
 
 int main(int argc, char *argv[]) {
   // sets the language of LCF messages (can be either EN-US or PT-PT)
@@ -104,6 +105,51 @@ int (video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y, uint16_t width
     return FAIL;
   }
 
+  if (waiting_escape()) {
+    return FAIL;
+  }
+
+  if (vg_exit()) {
+    return FAIL;
+  }
+
+  return SUCCESS;
+}
+
+int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
+  if (set_frame_buffer(mode)) {
+    return FAIL;
+  }
+
+  if (set_graphic_mode(mode)) {
+    return FAIL;
+  }
+
+  int vrt = mode_info.YResolution / no_rectangles; // vertical
+  int hrz = mode_info.XResolution / no_rectangles; // horizontal
+
+  for (int i = 0 ; i < no_rectangles ; i++) {
+    for (int j = 0 ; j < no_rectangles ; j++) {
+
+      uint32_t color;
+
+      if (mode_info.MemoryModel == DIRECT_COLOR) {
+        uint32_t red = (R(first) + j * step) % (1 << mode_info.RedMaskSize);
+        uint32_t green = (G(first) + i * step) % (1 << mode_info.GreenMaskSize);
+        uint32_t blue = (B(first) + (i + j) * step) % (1 << mode_info.BlueMaskSize);
+        
+        color = (red << mode_info.RedFieldPosition) | (green << mode_info.GreenFieldPosition) | (blue << mode_info.BlueFieldPosition);
+      } 
+      else {
+        color = (first + (i * no_rectangles + j) * step) % (1 << mode_info.BitsPerPixel); // Indexed Mode
+      }
+
+      if (vg_draw_rectangle(j * hrz, i * vrt, hrz, vrt, color)) {
+        return FAIL;
+      }
+    }
+  }
+  
   if (waiting_escape()) {
     return FAIL;
   }
