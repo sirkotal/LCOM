@@ -37,6 +37,10 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+void (kbc_ih)() {
+  KBC_int_handler();
+}
+
 int (waiting_escape)() {
   uint8_t bit_no;
 
@@ -56,7 +60,7 @@ int (waiting_escape)() {
       switch (_ENDPOINT_P(msg.m_source)) {
         case HARDWARE: 
           if (msg.m_notify.interrupts & bit_no) 
-            KBC_int_handler();
+            kbc_ih();
             break;
         default:
           break; 
