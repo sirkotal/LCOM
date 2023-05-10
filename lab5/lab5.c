@@ -163,11 +163,11 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 
 int (video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
 
-  if(set_frame_buffer(VBE_768p_INDEXED)) {
+  if (set_frame_buffer(VBE_768p_INDEXED)) {
     return FAIL;
   }
   
-  if(set_graphic_mode(VBE_768p_INDEXED)) {
+  if (set_graphic_mode(VBE_768p_INDEXED)) {
     return FAIL;
   }
 
@@ -180,6 +180,110 @@ int (video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
   }
 
   if (vg_exit()) {
+    return FAIL;
+  }
+
+  return SUCCESS;
+}
+
+int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf, int16_t speed, uint8_t fr_rate) {
+  uint8_t timer_bit_no, kbc_bit_no;
+  if (KBC_subscribe_ints(&kbc_bit_no)) {
+    return FAIL;
+  }
+  if (timer_subscribe_int(&timer_bit_no)) {
+    return FAIL;
+  }
+
+
+  // movement is either vertical or horizontal
+  uint8_t vertical_direction;
+  if (xi == xf && yi < yf) {
+    vertical_direction = 1;
+  }  
+  else if (yi == yf && xi < xf) {
+    vertical_direction = 0;
+  }  
+  else {
+    return FAIL;
+  }
+
+  if (timer_set_frequency(0, fr_rate)) {
+    return FAIL;
+  }   
+
+  if (set_frame_buffer(VBE_768p_INDEXED)) {
+    return FAIL;
+  }
+  
+  if (set_graphic_mode(VBE_768p_INDEXED)) {
+    return FAIL;
+  } 
+
+  if (print_xpm(xpm, xi, yi)) {
+    return FAIL;
+  }
+
+
+  int ipc_status, r;
+  message msg;
+
+  while (scancode != BREAK_ESC && (xi < xf || yi < yf)) {
+    /* Get a request message. */
+    if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
+      printf("driver_receive failed with: %d", r);
+      continue;
+    }
+
+    if (is_ipc_notify(ipc_status)) {   /* received notification */
+      switch (_ENDPOINT_P(msg.m_source)) {
+        case HARDWARE: /* hardware interrupt notification */	
+          if (msg.m_notify.interrupts & kbc_bit_no) { /* subscribed interrupt */
+            kbc_ih(); // update scancode
+          }
+
+          if (msg.m_notify.interrupts & timer_bit_no) { /* subscribed interrupt */
+
+            // erase previous drawing (movement feeling)
+            if (vg_draw_rectangle(xi, yi, 100, 100, 0xFFFFFF)) {
+              return FAIL;
+            }
+
+            if (vertical_direction) {
+              yi += speed;
+              if (yi > yf) {
+                yi = yf;
+              }  
+            } 
+            else {
+              xi += speed;
+              if (xi > xf) {
+                xi = xf;
+              }  
+            }
+
+            // image has moved
+            if (print_xpm(xpm, xi, yi)) {
+              return FAIL;
+            }
+          }
+          break;
+        default:
+          break; /* no other notifications expected: do nothing */	
+      }
+    }
+  }
+
+  // Back to MINIX text mode
+  if (vg_exit()) {
+    return FAIL;
+  }
+
+  if (timer_unsubscribe_int()) {
+    return FAIL;
+  }
+
+  if (KBC_unsubscribe_ints()) {
     return FAIL;
   }
 
