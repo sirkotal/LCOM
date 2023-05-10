@@ -160,3 +160,28 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
 
   return SUCCESS;
 }
+
+int (video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+
+  if(set_frame_buffer(VBE_768p_INDEXED)) {
+    return FAIL;
+  }
+  
+  if(set_graphic_mode(VBE_768p_INDEXED)) {
+    return FAIL;
+  }
+
+  if (print_xpm(xpm, x, y)) {
+    return FAIL;
+  }
+
+  if (waiting_escape()) {
+    return FAIL;
+  }
+
+  if (vg_exit()) {
+    return FAIL;
+  }
+
+  return SUCCESS;
+}

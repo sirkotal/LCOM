@@ -91,3 +91,19 @@ uint32_t (G)(uint32_t first) {
 uint32_t (B)(uint32_t first) {
   return ((1 << mode_info.BlueMaskSize) - 1) & (first >> mode_info.BlueFieldPosition);
 }
+
+int (print_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
+  xpm_image_t img;
+
+  uint8_t *colors = xpm_load(xpm, XPM_INDEXED, &img);
+
+  for (int h = 0 ; h < img.height ; h++) {
+    for (int w = 0 ; w < img.width ; w++) {
+      if (color_pixel(x + w, y + h, *colors)) {
+        return FAIL;
+      }
+      colors++;
+    }
+  }
+  return SUCCESS;
+}
