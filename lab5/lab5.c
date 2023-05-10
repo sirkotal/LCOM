@@ -191,10 +191,10 @@ int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint
   if (KBC_subscribe_ints(&kbc_bit_no)) {
     return FAIL;
   }
+
   if (timer_subscribe_int(&timer_bit_no)) {
     return FAIL;
   }
-
 
   // movement is either vertical or horizontal
   uint8_t vertical_direction;
@@ -207,10 +207,6 @@ int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint
   else {
     return FAIL;
   }
-
-  if (timer_set_frequency(0, fr_rate)) {
-    return FAIL;
-  }   
 
   if (set_frame_buffer(VBE_768p_INDEXED)) {
     return FAIL;
@@ -228,6 +224,9 @@ int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint
   int ipc_status, r;
   message msg;
 
+  uint32_t int_frames = sys_hz() / fr_rate;
+  int timer_counter = 0;
+
   while (scancode != BREAK_ESC && (xi < xf || yi < yf)) {
     /* Get a request message. */
     if ( (r = driver_receive(ANY, &msg, &ipc_status)) != 0 ) {
@@ -243,6 +242,11 @@ int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint
           }
 
           if (msg.m_notify.interrupts & timer_bit_no) { /* subscribed interrupt */
+            timer_counter++;
+
+            if (timer_counter % int_frames != 0) {
+              continue;
+            }
 
             // erase previous drawing (movement feeling)
             if (vg_draw_rectangle(xi, yi, 100, 100, 0xFFFFFF)) {
@@ -274,16 +278,16 @@ int (video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint
     }
   }
 
-  // Back to MINIX text mode
-  if (vg_exit()) {
-    return FAIL;
-  }
-
   if (timer_unsubscribe_int()) {
     return FAIL;
   }
 
   if (KBC_unsubscribe_ints()) {
+    return FAIL;
+  }
+
+  // Back to MINIX text mode
+  if (vg_exit()) {
     return FAIL;
   }
 
