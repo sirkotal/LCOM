@@ -1,0 +1,8 @@
+<map id="kbc_read_output" name="kbc_read_output">
+<area shape="rect" id="Node000001" title="Reads the output buffer of the KBC." alt="" coords="5,31,123,57"/>
+<area shape="rect" id="Node000002" href="$kbc_8c.html#a82999842ae6a8860abbc1e0829e17653" title="Reads the status of the KBC." alt="" coords="171,5,288,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,32,156,27,157,33,124,38"/>
+<area shape="rect" id="Node000003" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="336,31,426,57"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="123,41,321,41,321,47,123,47"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="289,26,322,31,321,37,288,31"/>
+</map>

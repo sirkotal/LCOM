@@ -6,5 +6,21 @@
   "editor.tabSize": 2,
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 100,
-  "files.associations": { },
+  "files.associations": {
+    "*.excalidraw": "json",
+    "*.excalidrawlib": "json",
+    "stdint.h": "c",
+    "lcf.h": "c",
+    "lab4.h": "c",
+    "lab2.h": "c",
+    "timer.h": "c",
+    "lab3.h": "c",
+    "stdbool.h": "c",
+    "stdio.h": "c",
+    "bullet.h": "c",
+    "sprites.h": "c",
+    "fonts_xpm.h": "c",
+    "font.h": "c",
+    "colors.h": "c"
+  },
 }

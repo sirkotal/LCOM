@@ -1,0 +1,10 @@
+<map id="kbd_read_scancode" name="kbd_read_scancode">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,143,57"/>
+<area shape="rect" id="Node000002" href="$kbc_8c.html#a738139e4a596435a237aeacf076cc8dc" title="Reads the output buffer of the KBC." alt="" coords="191,31,308,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,41,176,41,176,47,143,47"/>
+<area shape="rect" id="Node000003" href="$kbc_8c.html#a82999842ae6a8860abbc1e0829e17653" title="Reads the status of the KBC." alt="" coords="356,5,473,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="308,32,341,27,342,33,309,38"/>
+<area shape="rect" id="Node000004" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="521,31,612,57"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="308,41,507,41,507,47,308,47"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="474,26,507,31,506,37,473,31"/>
+</map>

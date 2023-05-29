@@ -1,0 +1,5 @@
+<map id="font_destroy" name="font_destroy">
+<area shape="rect" id="Node000001" title="Destroys the font." alt="" coords="5,5,98,32"/>
+<area shape="rect" id="Node000002" href="$sprites_8c.html#a2910542eb4c457cd6e8801c9d19f2163" title="Destroy a sprite object." alt="" coords="146,5,249,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,16,130,16,130,21,98,21"/>
+</map>

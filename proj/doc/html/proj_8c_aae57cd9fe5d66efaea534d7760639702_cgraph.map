@@ -1,0 +1,17 @@
+<map id="handle_menu_kbd" name="handle_menu_kbd">
+<area shape="rect" id="Node000001" title="Handles the keyboard interrupts in the menu state." alt="" coords="5,56,132,83"/>
+<area shape="rect" id="Node000002" href="$proj_8c.html#aace3213c2618b555484b95113dedd893" title="Draws the main menu." alt="" coords="180,56,267,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,67,165,67,165,72,132,72"/>
+<area shape="rect" id="Node000003" href="$font_8c.html#ac93fe2726b66667db142332242de79bf" title="Draws text on the screen." alt="" coords="348,5,425,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="266,53,333,32,335,37,268,58"/>
+<area shape="rect" id="Node000006" href="$font_8c.html#a8fa5259747689cc5f213de473273d833" title="Destroys the font." alt="" coords="341,56,433,83"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="267,67,326,67,326,72,267,72"/>
+<area shape="rect" id="Node000008" href="$graphics_8c.html#a55ba3ccbf5a240a339d015e281d47f8f" title="Move the double buffer to the video memory." alt="" coords="315,107,458,133"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="268,80,329,99,327,104,266,85"/>
+<area shape="rect" id="Node000004" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="506,5,680,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="426,16,491,16,491,21,426,21"/>
+<area shape="rect" id="Node000005" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="728,5,836,32"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="680,16,713,16,713,21,680,21"/>
+<area shape="rect" id="Node000007" href="$sprites_8c.html#a2910542eb4c457cd6e8801c9d19f2163" title="Destroy a sprite object." alt="" coords="541,56,645,83"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="433,67,526,67,526,72,433,72"/>
+</map>

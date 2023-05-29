@@ -1,0 +1,9 @@
+<map id="rtc_set" name="rtc_set">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,67,32"/>
+<area shape="rect" id="Node000002" href="$rtc_8c.html#aba1e0b5eea0d44949efdbd52d1ff504b" title="Checks if the RTC&#39;s counters are being incremented in binary mode." alt="" coords="115,5,235,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,16,100,16,100,21,67,21"/>
+<area shape="rect" id="Node000003" href="$rtc_8c.html#ad542c59f2f234f2befd0efbeb4193fb7" title="Sends a command to the RTC address register and reads the corresponding data from the RTC data regist..." alt="" coords="283,5,362,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="236,16,268,16,268,21,236,21"/>
+<area shape="rect" id="Node000004" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="410,5,501,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,16,396,16,396,21,363,21"/>
+</map>

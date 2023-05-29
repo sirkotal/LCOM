@@ -1,0 +1,119 @@
+<map id="proj_main_loop" name="proj_main_loop">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,725,114,751"/>
+<area shape="rect" id="Node000002" href="$proj_8c.html#aa70e5f763ae58bd51eb2f51b63d98922" title="calculate if the player colides" alt="" coords="418,218,486,245"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,724,69,639,89,514,103,448,119,388,138,339,160,305,186,283,216,265,248,251,282,241,347,230,403,227,403,232,348,235,283,247,250,256,219,270,189,287,164,309,143,341,124,390,108,450,94,514,75,640,65,724"/>
+<area shape="rect" id="Node000003" href="$sprites_8c.html#a59c7cfb9c876f7fe5a39d437eff9e679" title="Create a sprite object." alt="" coords="603,66,699,93"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="58,724,59,598,71,398,83,294,101,197,126,119,142,89,160,67,184,47,211,32,269,12,331,4,394,5,455,14,513,27,605,58,604,63,512,32,454,19,393,11,331,9,270,17,213,36,187,52,164,70,146,92,131,121,106,199,88,294,76,399,65,598,63,724"/>
+<area shape="rect" id="Node000004" href="$sprites_8c.html#aa185567f4238c8f9ec452b809fa619f0" title="Draw a sprite object." alt="" coords="607,421,695,447"/>
+<area shape="poly" id="edge20_Node000001_Node000004" title=" " alt="" coords="62,724,72,689,92,642,121,593,139,571,160,552,194,532,241,514,359,482,486,457,592,439,593,445,487,462,360,488,242,519,196,537,163,556,143,575,125,596,97,645,77,691,67,725"/>
+<area shape="rect" id="Node000007" href="$graphics_8c.html#aab0ee43a0f19c6eb0ac13b7b357649fc" title="Get the horizontal resolution." alt="" coords="612,129,690,155"/>
+<area shape="poly" id="edge27_Node000001_Node000007" title=" " alt="" coords="59,724,65,621,81,462,94,378,111,302,133,240,146,215,160,197,209,160,264,134,325,119,386,111,447,110,504,113,598,127,597,132,504,119,447,115,387,116,326,124,266,139,211,164,164,201,150,218,138,242,116,304,99,379,86,462,70,621,64,724"/>
+<area shape="rect" id="Node000008" href="$graphics_8c.html#ae9c75eaa66222e9130dd1b299ae8b3e6" title="Get the vertical resolution." alt="" coords="613,205,689,231"/>
+<area shape="poly" id="edge30_Node000001_Node000008" title=" " alt="" coords="59,724,67,630,85,488,99,414,115,346,135,290,160,252,183,232,208,214,264,190,324,176,386,172,447,174,505,180,599,200,598,205,504,186,447,179,386,177,325,182,266,195,211,219,186,236,164,256,140,292,120,348,104,415,90,489,72,631,64,725"/>
+<area shape="rect" id="Node000009" href="$sprites_8c.html#a2910542eb4c457cd6e8801c9d19f2163" title="Destroy a sprite object." alt="" coords="806,737,909,763"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="114,736,791,746,791,752,114,741"/>
+<area shape="rect" id="Node000010" href="$proj_8c.html#aace3213c2618b555484b95113dedd893" title="Draws the main menu." alt="" coords="409,623,496,650"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="64,723,78,697,98,665,126,633,160,609,191,597,224,591,289,590,351,601,404,615,402,620,350,606,289,596,224,596,193,602,163,614,129,637,102,668,82,700,69,725"/>
+<area shape="rect" id="Node000012" href="$font_8c.html#a8fa5259747689cc5f213de473273d833" title="Destroys the font." alt="" coords="605,699,697,726"/>
+<area shape="poly" id="edge22_Node000001_Node000012" title=" " alt="" coords="114,733,590,712,590,718,114,738"/>
+<area shape="rect" id="Node000013" href="$graphics_8c.html#a55ba3ccbf5a240a339d015e281d47f8f" title="Move the double buffer to the video memory." alt="" coords="579,573,723,599"/>
+<area shape="poly" id="edge43_Node000001_Node000013" title=" " alt="" coords="62,723,74,692,93,652,122,612,140,595,160,581,193,569,236,562,343,558,460,564,565,573,565,578,460,569,343,564,236,568,194,575,163,586,143,599,126,616,98,655,79,694,67,725"/>
+<area shape="rect" id="Node000014" href="$proj_8c.html#a079e880054156feef5fc79ae35c66477" title="Draws the game over screen." alt="" coords="413,674,491,701"/>
+<area shape="poly" id="edge16_Node000001_Node000014" title=" " alt="" coords="114,725,161,717,398,689,398,695,162,722,115,730"/>
+<area shape="rect" id="Node000015" href="$graphics_8c.html#abb9eb0221606ff54c8c98ec522ee0004" title="Exit the graphics mode." alt="" coords="175,826,312,853"/>
+<area shape="poly" id="edge21_Node000001_Node000015" title=" " alt="" coords="80,750,117,777,163,805,190,818,188,822,160,810,114,781,77,754"/>
+<area shape="rect" id="Node000016" href="$font_8c.html#a2b359e0e970d127e39be4053697b93b4" title="Initializes the font." alt="" coords="419,66,485,93"/>
+<area shape="poly" id="edge23_Node000001_Node000016" title=" " alt="" coords="58,724,61,605,74,419,87,321,104,232,128,158,143,130,160,109,187,89,217,75,249,65,283,60,349,60,404,66,404,72,348,65,283,65,251,70,219,80,189,94,164,113,148,133,133,160,110,233,92,322,80,420,67,606,64,724"/>
+<area shape="rect" id="Node000017" href="$mouse_8c.html#acaee550b2065b80408df95ade5e9ecf4" title="Generate mouse packet." alt="" coords="162,877,325,903"/>
+<area shape="poly" id="edge25_Node000001_Node000017" title=" " alt="" coords="70,750,106,805,132,836,163,862,172,868,169,872,160,867,128,839,101,808,66,753"/>
+<area shape="rect" id="Node000018" href="$mouse_8c.html#a4cd7b818a3e48570aa17cc305cfee7da" title="Get current packet index." alt="" coords="177,927,310,970"/>
+<area shape="poly" id="edge26_Node000001_Node000018" title=" " alt="" coords="68,751,80,783,100,826,128,873,164,913,168,917,164,921,160,917,123,876,95,829,75,785,63,752"/>
+<area shape="rect" id="Node000019" href="$mouse_8c.html#a4d194f8789b7aadfd3a2a8d61bee9177" title="Get mouse packet." alt="" coords="178,994,309,1021"/>
+<area shape="poly" id="edge28_Node000001_Node000019" title=" " alt="" coords="65,751,73,795,90,857,119,923,139,953,164,980,168,984,165,988,160,984,135,957,115,925,85,859,68,797,60,752"/>
+<area shape="rect" id="Node000020" href="$keyboard_8c.html#afdfb6322f4a75773b745fc6cc6c20d27" title="Returns the scancode." alt="" coords="192,1045,295,1071"/>
+<area shape="poly" id="edge29_Node000001_Node000020" title=" " alt="" coords="64,751,69,803,84,878,96,919,113,959,136,997,163,1031,180,1042,177,1047,160,1035,131,1000,109,962,91,921,78,879,64,804,59,752"/>
+<area shape="rect" id="Node000021" href="$proj_8c.html#aae57cd9fe5d66efaea534d7760639702" title="Handles the keyboard interrupts in the menu state." alt="" coords="180,623,307,650"/>
+<area shape="poly" id="edge31_Node000001_Node000021" title=" " alt="" coords="77,722,114,695,160,666,188,653,190,658,163,671,117,699,80,726"/>
+<area shape="rect" id="Node000022" href="$keyboard_8c.html#a5761bd4aad91ac1d68916ad88f583d9f" title=" " alt="" coords="214,1095,273,1122"/>
+<area shape="poly" id="edge33_Node000001_Node000022" title=" " alt="" coords="63,752,65,811,78,900,90,948,108,996,132,1042,164,1081,180,1093,200,1101,198,1106,178,1098,160,1085,128,1045,103,999,85,950,73,901,60,812,58,752"/>
+<area shape="rect" id="Node000025" href="$graphics_8c.html#ab8e8caaeb7df03bd421fb126dd32866b" title="Map VRAM to the process address space." alt="" coords="163,1146,324,1173"/>
+<area shape="poly" id="edge36_Node000001_Node000025" title=" " alt="" coords="65,751,76,830,97,944,127,1058,144,1102,164,1132,167,1135,163,1139,160,1136,140,1105,122,1060,92,945,71,831,60,752"/>
+<area shape="rect" id="Node000026" href="$mouse_8c.html#aed4404005e4c565ac36656307386e0ac" title=" " alt="" coords="205,1197,282,1223"/>
+<area shape="poly" id="edge37_Node000001_Node000026" title=" " alt="" coords="65,751,75,838,94,968,108,1036,124,1098,143,1149,164,1183,176,1193,191,1200,189,1205,173,1197,160,1186,138,1151,119,1099,103,1037,89,969,69,839,59,752"/>
+<area shape="rect" id="Node000031" href="$proj_8c.html#ac4ea1a59a30a23ef3af6c0dc96a106be" title="Module responsible for the movement of the bullets." alt="" coords="195,319,292,346"/>
+<area shape="poly" id="edge44_Node000001_Node000031" title=" " alt="" coords="58,724,59,661,71,565,84,512,102,459,127,408,160,363,180,347,183,351,164,366,131,411,107,461,89,513,77,566,65,661,63,724"/>
+<area shape="rect" id="Node000032" href="$graphics_8c.html#a99d2da2559e11200c6b40c469e9977ec" title=" " alt="" coords="389,370,516,397"/>
+<area shape="poly" id="edge71_Node000001_Node000032" title=" " alt="" coords="57,724,58,664,70,577,82,530,100,484,126,442,160,407,184,391,210,379,265,365,322,362,374,366,374,371,322,367,266,370,212,384,186,395,163,411,130,445,105,487,87,532,75,578,64,665,63,724"/>
+<area shape="rect" id="Node000034" href="$proj_8c.html#ad73b2583b93bd78a6bd9ad8662536cb9" title="Module responsible for the kbd interrupts in the playing state." alt="" coords="182,421,305,447"/>
+<area shape="poly" id="edge51_Node000001_Node000034" title=" " alt="" coords="59,724,66,675,83,606,113,531,134,496,160,464,174,452,178,457,164,468,138,499,118,534,88,608,72,676,65,724"/>
+<area shape="rect" id="Node000035" href="$graphics_8c.html#a29e12d989ec405e661e02556aa1a12d9" title="Set the graphics mode." alt="" coords="176,1349,311,1375"/>
+<area shape="poly" id="edge56_Node000001_Node000035" title=" " alt="" coords="64,752,70,864,85,1040,98,1132,115,1217,137,1288,150,1314,164,1335,166,1338,162,1341,160,1338,145,1317,132,1289,110,1219,93,1133,80,1041,64,865,59,752"/>
+<area shape="rect" id="Node000036" href="$proj_8c.html#a8133423d75cd5af3845a35722c75a0f3" title="Subscribes the interrupts." alt="" coords="191,1247,296,1274"/>
+<area shape="poly" id="edge57_Node000001_Node000036" title=" " alt="" coords="64,752,73,847,91,992,105,1068,121,1138,141,1195,164,1233,179,1245,175,1249,160,1237,136,1197,116,1139,99,1069,86,993,67,848,59,752"/>
+<area shape="rect" id="Node000042" href="$proj_8c.html#ab9e6776a51639c6f838b61afdc88a4de" title="calculates the slope based on player and cursor position and the incrementor" alt="" coords="206,1399,281,1426"/>
+<area shape="poly" id="edge65_Node000001_Node000042" title=" " alt="" coords="64,752,68,873,82,1064,95,1164,112,1257,135,1334,149,1363,164,1385,177,1396,192,1403,190,1408,174,1401,160,1389,144,1366,130,1336,107,1258,90,1165,77,1064,63,873,58,752"/>
+<area shape="rect" id="Node000043" href="$proj_8c.html#a152e02e114184fb7937fcff5be462055" title="Unsubscribes the interrupts." alt="" coords="184,1298,303,1325"/>
+<area shape="poly" id="edge66_Node000001_Node000043" title=" " alt="" coords="64,751,71,856,88,1016,101,1100,118,1177,139,1241,151,1266,164,1284,172,1292,169,1296,160,1288,146,1268,134,1243,113,1179,96,1101,83,1017,66,856,59,752"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="465,215,512,168,578,114,606,97,608,102,581,119,516,172,468,219"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="488,238,511,247,533,261,568,296,598,335,639,406,635,408,594,338,564,299,530,265,508,252,486,243"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="483,215,605,159,607,164,485,220"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="487,226,598,219,598,224,487,232"/>
+<area shape="rect" id="Node000005" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="771,421,944,447"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="695,431,756,431,756,437,695,437"/>
+<area shape="rect" id="Node000006" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="992,395,1100,422"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="944,420,977,415,977,420,945,425"/>
+<area shape="rect" id="Node000011" href="$font_8c.html#ac93fe2726b66667db142332242de79bf" title="Draws text on the screen." alt="" coords="612,623,690,650"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="496,634,597,634,597,639,496,639"/>
+<area shape="poly" id="edge13_Node000010_Node000012" title=" " alt="" coords="497,647,532,659,607,690,605,695,530,664,495,652"/>
+<area shape="poly" id="edge15_Node000010_Node000013" title=" " alt="" coords="495,623,581,601,582,606,497,628"/>
+<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="689,625,721,609,760,574,794,533,840,459,845,462,798,536,764,577,724,613,691,630"/>
+<area shape="poly" id="edge14_Node000012_Node000009" title=" " alt="" coords="698,718,792,735,791,741,697,723"/>
+<area shape="poly" id="edge17_Node000014_Node000011" title=" " alt="" coords="491,675,597,647,598,653,492,680"/>
+<area shape="poly" id="edge18_Node000014_Node000012" title=" " alt="" coords="492,690,590,702,590,708,491,695"/>
+<area shape="poly" id="edge19_Node000014_Node000013" title=" " alt="" coords="491,676,530,660,544,648,553,635,563,622,578,609,587,604,590,608,581,613,567,626,558,638,548,651,533,664,493,681"/>
+<area shape="poly" id="edge24_Node000016_Node000003" title=" " alt="" coords="486,77,588,77,588,82,486,82"/>
+<area shape="poly" id="edge32_Node000021_Node000010" title=" " alt="" coords="307,634,394,634,394,639,307,639"/>
+<area shape="rect" id="Node000023" href="$keyboard_8c.html#a7a5efd5643a55e1504fee3dfa927deb5" title="Keyboard interrupt handler." alt="" coords="396,1045,508,1071"/>
+<area shape="poly" id="edge34_Node000022_Node000023" title=" " alt="" coords="273,1099,381,1072,383,1077,274,1104"/>
+<area shape="rect" id="Node000024" href="$keyboard_8h.html#ab276451dfe91dcf661c46583b70ad70b" title="Reads the scancode from the output buffer." alt="" coords="582,1045,720,1071"/>
+<area shape="poly" id="edge35_Node000023_Node000024" title=" " alt="" coords="509,1055,568,1055,568,1061,509,1061"/>
+<area shape="rect" id="Node000027" href="$mouse_8c.html#aa427800f9c73640c1b641fa14ecf7da5" title="Mouse interrupt handler." alt="" coords="387,1095,517,1122"/>
+<area shape="poly" id="edge38_Node000026_Node000027" title=" " alt="" coords="281,1200,324,1182,338,1170,347,1158,356,1145,371,1132,381,1126,384,1131,375,1136,360,1148,351,1161,342,1174,326,1187,283,1205"/>
+<area shape="rect" id="Node000028" href="$kbc_8c.html#a738139e4a596435a237aeacf076cc8dc" title="Reads the output buffer of the KBC." alt="" coords="592,1197,710,1223"/>
+<area shape="poly" id="edge39_Node000027_Node000028" title=" " alt="" coords="504,1120,532,1131,580,1158,621,1185,618,1190,577,1162,530,1136,502,1125"/>
+<area shape="rect" id="Node000029" href="$kbc_8c.html#a82999842ae6a8860abbc1e0829e17653" title="Reads the status of the KBC." alt="" coords="799,1247,916,1274"/>
+<area shape="poly" id="edge40_Node000028_Node000029" title=" " alt="" coords="709,1221,787,1241,785,1246,708,1226"/>
+<area shape="rect" id="Node000030" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="1001,1247,1091,1274"/>
+<area shape="poly" id="edge42_Node000028_Node000030" title=" " alt="" coords="710,1210,819,1217,944,1233,987,1242,986,1247,944,1238,819,1222,710,1215"/>
+<area shape="poly" id="edge41_Node000029_Node000030" title=" " alt="" coords="917,1258,986,1258,986,1263,917,1263"/>
+<area shape="poly" id="edge45_Node000031_Node000002" title=" " alt="" coords="267,316,372,261,403,247,405,252,374,266,270,321"/>
+<area shape="poly" id="edge46_Node000031_Node000004" title=" " alt="" coords="286,316,337,303,400,295,467,295,500,301,532,311,565,330,594,355,636,406,631,410,590,359,562,335,530,316,499,306,467,301,400,300,338,309,287,321"/>
+<area shape="poly" id="edge47_Node000031_Node000013" title=" " alt="" coords="292,321,345,315,408,316,473,328,504,339,533,356,555,378,565,402,571,428,582,458,637,558,632,561,577,460,565,429,560,403,551,381,530,360,502,344,472,333,408,321,345,321,292,326"/>
+<area shape="poly" id="edge48_Node000031_Node000032" title=" " alt="" coords="293,342,381,363,380,368,291,347"/>
+<area shape="rect" id="Node000033" href="$graphics_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="lcf functions may not work properly in proj (if so add #include &lt;lcf/lab5.h&gt; or rewrite them)" alt="" coords="807,370,908,397"/>
+<area shape="poly" id="edge49_Node000032_Node000033" title=" " alt="" coords="516,381,792,381,792,386,516,386"/>
+<area shape="poly" id="edge50_Node000033_Node000006" title=" " alt="" coords="909,387,977,397,977,402,908,393"/>
+<area shape="poly" id="edge52_Node000034_Node000002" title=" " alt="" coords="258,418,323,356,425,253,429,257,327,360,261,422"/>
+<area shape="poly" id="edge53_Node000034_Node000004" title=" " alt="" coords="305,431,593,431,593,437,305,437"/>
+<area shape="poly" id="edge54_Node000034_Node000013" title=" " alt="" coords="283,445,600,565,598,570,281,450"/>
+<area shape="poly" id="edge55_Node000034_Node000032" title=" " alt="" coords="301,417,380,398,381,403,302,423"/>
+<area shape="rect" id="Node000037" href="$keyboard_8c.html#a4ac9231a99a664d6a9f0b69767e0d707" title="Subscribes and enables keyboard interrupts." alt="" coords="389,1247,515,1274"/>
+<area shape="poly" id="edge58_Node000036_Node000037" title=" " alt="" coords="296,1258,374,1258,374,1263,296,1263"/>
+<area shape="rect" id="Node000038" href="$mouse_8c.html#a20285aed4b3ef45812cd967532dd09db" title="Subscribes and enables Mouse interrupts." alt="" coords="380,1146,524,1173"/>
+<area shape="poly" id="edge59_Node000036_Node000038" title=" " alt="" coords="295,1246,324,1233,338,1221,347,1208,356,1195,371,1182,381,1177,384,1181,375,1187,360,1199,351,1212,342,1225,326,1237,298,1251"/>
+<area shape="rect" id="Node000039" href="$mouse_8c.html#a38d52a9770ba9b635e98e4968ae7c330" title="Write command to mouse." alt="" coords="373,1298,531,1325"/>
+<area shape="poly" id="edge60_Node000036_Node000039" title=" " alt="" coords="297,1271,381,1291,380,1296,296,1276"/>
+<area shape="rect" id="Node000041" href="$timer_8c.html#ac57a7e1140a7e00ad95ac5488d2a671b" title=" " alt="" coords="385,1197,519,1223"/>
+<area shape="poly" id="edge64_Node000036_Node000041" title=" " alt="" coords="296,1245,380,1225,381,1230,297,1251"/>
+<area shape="poly" id="edge63_Node000039_Node000030" title=" " alt="" coords="532,1309,720,1304,832,1296,944,1283,986,1275,987,1280,944,1289,833,1302,720,1310,532,1315"/>
+<area shape="rect" id="Node000040" href="$kbc_8c.html#a2ab1f2e032e969a71de2b947a8c245a2" title="Writes a command to the KBC." alt="" coords="581,1247,721,1274"/>
+<area shape="poly" id="edge61_Node000039_Node000040" title=" " alt="" coords="507,1295,581,1276,582,1281,508,1300"/>
+<area shape="poly" id="edge62_Node000040_Node000029" title=" " alt="" coords="721,1258,784,1258,784,1263,721,1263"/>
+<area shape="poly" id="edge69_Node000043_Node000039" title=" " alt="" coords="303,1309,358,1309,358,1314,303,1314"/>
+<area shape="rect" id="Node000044" href="$keyboard_8c.html#aee0a7b54ee426fade9c780418d110fe0" title="Unsubscribes keyboard interrupts." alt="" coords="382,1450,522,1477"/>
+<area shape="poly" id="edge67_Node000043_Node000044" title=" " alt="" coords="305,1321,327,1335,338,1347,346,1361,352,1387,357,1412,364,1424,375,1436,380,1440,376,1444,371,1440,360,1427,353,1414,346,1388,341,1363,334,1351,323,1339,302,1326"/>
+<area shape="rect" id="Node000045" href="$mouse_8c.html#a3ecf823d80520009ae5e0d76ae40a3c3" title="Unsubscribes Mouse interrupts." alt="" coords="373,1349,531,1375"/>
+<area shape="poly" id="edge68_Node000043_Node000045" title=" " alt="" coords="302,1323,381,1342,380,1347,301,1328"/>
+<area shape="rect" id="Node000046" href="$timer_8c.html#afabd21de449be154dd65d5fdb2d8045d" title=" " alt="" coords="378,1399,526,1426"/>
+<area shape="poly" id="edge70_Node000043_Node000046" title=" " alt="" coords="303,1323,326,1334,342,1347,351,1360,360,1373,375,1385,384,1390,381,1395,371,1389,356,1376,347,1363,338,1351,324,1339,300,1328"/>
+</map>

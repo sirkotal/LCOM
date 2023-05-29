@@ -1,0 +1,7 @@
+<map id="int" name="int">
+<area shape="rect" id="Node000001" title="Checks if the RTC isn&#39;t updating any values." alt="" coords="5,5,44,32"/>
+<area shape="rect" id="Node000002" href="$rtc_8c.html#ad542c59f2f234f2befd0efbeb4193fb7" title="Sends a command to the RTC address register and reads the corresponding data from the RTC data regist..." alt="" coords="92,5,171,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,16,77,16,77,21,44,21"/>
+<area shape="rect" id="Node000003" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="219,5,309,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="171,16,204,16,204,21,171,21"/>
+</map>

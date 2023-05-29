@@ -1,0 +1,25 @@
+<map id="move_bullets" name="move_bullets">
+<area shape="rect" id="Node000001" title="Module responsible for the movement of the bullets." alt="" coords="5,113,102,140"/>
+<area shape="rect" id="Node000002" href="$proj_8c.html#aa70e5f763ae58bd51eb2f51b63d98922" title="calculate if the player colides" alt="" coords="187,88,256,115"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,117,173,106,173,111,103,122"/>
+<area shape="rect" id="Node000004" href="$sprites_8c.html#aa185567f4238c8f9ec452b809fa619f0" title="Draw a sprite object." alt="" coords="346,5,433,32"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="76,110,109,91,149,74,244,44,331,25,332,31,245,49,151,78,112,96,78,115"/>
+<area shape="rect" id="Node000009" href="$graphics_8c.html#a55ba3ccbf5a240a339d015e281d47f8f" title="Move the double buffer to the video memory." alt="" coords="150,139,293,165"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="103,131,135,136,135,142,102,137"/>
+<area shape="rect" id="Node000010" href="$graphics_8c.html#a99d2da2559e11200c6b40c469e9977ec" title=" " alt="" coords="158,201,285,228"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="82,138,151,175,182,192,180,196,148,180,80,143"/>
+<area shape="rect" id="Node000003" href="$sprites_8c.html#a59c7cfb9c876f7fe5a39d437eff9e679" title="Create a sprite object." alt="" coords="341,56,437,83"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,92,326,79,327,84,257,97"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="249,85,346,37,348,41,252,90"/>
+<area shape="rect" id="Node000007" href="$graphics_8c.html#aab0ee43a0f19c6eb0ac13b7b357649fc" title="Get the horizontal resolution." alt="" coords="350,107,428,133"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="256,102,336,111,335,117,256,108"/>
+<area shape="rect" id="Node000008" href="$graphics_8c.html#ae9c75eaa66222e9130dd1b299ae8b3e6" title="Get the vertical resolution." alt="" coords="351,157,427,184"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="257,110,294,124,347,148,345,153,292,129,255,115"/>
+<area shape="rect" id="Node000005" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="485,44,659,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="434,25,492,38,491,43,433,30"/>
+<area shape="rect" id="Node000006" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="707,107,815,133"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="616,69,706,99,704,104,614,74"/>
+<area shape="rect" id="Node000011" href="$graphics_8c.html#a5e5b25bd525250f61f40b9e9f212d5e6" title="lcf functions may not work properly in proj (if so add #include &lt;lcf/lab5.h&gt; or rewrite them)" alt="" coords="521,132,623,159"/>
+<area shape="poly" id="edge11_Node000010_Node000011" title=" " alt="" coords="285,211,358,206,437,193,484,179,527,163,529,168,485,185,438,199,359,211,286,216"/>
+<area shape="poly" id="edge12_Node000011_Node000006" title=" " alt="" coords="623,136,691,127,692,132,624,141"/>
+</map>

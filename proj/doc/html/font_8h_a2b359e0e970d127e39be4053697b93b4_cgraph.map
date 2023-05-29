@@ -1,0 +1,5 @@
+<map id="font_init" name="font_init">
+<area shape="rect" id="Node000001" title="Initializes the font." alt="" coords="5,5,72,32"/>
+<area shape="rect" id="Node000002" href="$sprites_8c.html#a59c7cfb9c876f7fe5a39d437eff9e679" title="Create a sprite object." alt="" coords="120,5,216,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,16,105,16,105,21,72,21"/>
+</map>

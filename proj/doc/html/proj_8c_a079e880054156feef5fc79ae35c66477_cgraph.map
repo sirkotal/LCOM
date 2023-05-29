@@ -1,0 +1,15 @@
+<map id="draw_over" name="draw_over">
+<area shape="rect" id="Node000001" title="Draws the game over screen." alt="" coords="5,56,84,83"/>
+<area shape="rect" id="Node000002" href="$font_8c.html#ac93fe2726b66667db142332242de79bf" title="Draws text on the screen." alt="" coords="165,5,242,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,54,150,33,151,38,85,59"/>
+<area shape="rect" id="Node000005" href="$font_8c.html#a8fa5259747689cc5f213de473273d833" title="Destroys the font." alt="" coords="157,56,250,83"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="84,67,142,67,142,72,84,72"/>
+<area shape="rect" id="Node000007" href="$graphics_8c.html#a55ba3ccbf5a240a339d015e281d47f8f" title="Move the double buffer to the video memory." alt="" coords="132,107,275,133"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="85,79,146,99,145,104,83,84"/>
+<area shape="rect" id="Node000003" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="323,5,496,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,16,308,16,308,21,242,21"/>
+<area shape="rect" id="Node000004" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="544,5,653,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="497,16,529,16,529,21,497,21"/>
+<area shape="rect" id="Node000006" href="$sprites_8c.html#a2910542eb4c457cd6e8801c9d19f2163" title="Destroy a sprite object." alt="" coords="358,56,461,83"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="250,67,343,67,343,72,250,72"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="int" name="int">
+<area shape="rect" id="Node000001" title="Updates the RTC&#39;s time values." alt="" coords="5,31,44,57"/>
+<area shape="rect" id="Node000002" href="$rtc_8c.html#a88348eea93c03708e378dfca41dd45ad" title="Converts a BCD number into binary." alt="" coords="92,5,176,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="43,37,77,29,78,34,45,42"/>
+<area shape="rect" id="Node000003" href="$rtc_8c.html#ad542c59f2f234f2befd0efbeb4193fb7" title="Sends a command to the RTC address register and reads the corresponding data from the RTC data regist..." alt="" coords="94,56,174,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="45,46,81,54,79,59,43,51"/>
+<area shape="rect" id="Node000004" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="224,56,314,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="174,67,209,67,209,72,174,72"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="kbd_enable_int" name="kbd_enable_int">
+<area shape="rect" id="Node000001" title="Enables keyboard interrupts (used if using polling, maybe not needed for the project)" alt="" coords="5,31,114,57"/>
+<area shape="rect" id="Node000002" href="$kbc_8c.html#a738139e4a596435a237aeacf076cc8dc" title="Reads the output buffer of the KBC." alt="" coords="173,56,291,83"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,49,159,56,158,61,114,55"/>
+<area shape="rect" id="Node000005" href="$kbc_8c.html#a2ab1f2e032e969a71de2b947a8c245a2" title="Writes a command to the KBC." alt="" coords="162,5,302,32"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="114,33,147,28,147,34,114,39"/>
+<area shape="rect" id="Node000003" href="$kbc_8c.html#a82999842ae6a8860abbc1e0829e17653" title="Reads the status of the KBC." alt="" coords="350,5,467,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="280,53,345,34,347,39,282,58"/>
+<area shape="rect" id="Node000004" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="515,31,606,57"/>
+<area shape="poly" id="edge4_Node000002_Node000004" title=" " alt="" coords="291,62,500,46,501,51,291,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="468,26,501,31,500,37,467,31"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="303,16,335,16,335,21,303,21"/>
+</map>

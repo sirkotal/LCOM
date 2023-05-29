@@ -1,0 +1,12 @@
+<map id="mouse_ih" name="mouse_ih">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,31,83,57"/>
+<area shape="rect" id="Node000002" href="$mouse_8c.html#aa427800f9c73640c1b641fa14ecf7da5" title="Mouse interrupt handler." alt="" coords="131,31,261,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,41,116,41,116,47,83,47"/>
+<area shape="rect" id="Node000003" href="$kbc_8c.html#a738139e4a596435a237aeacf076cc8dc" title="Reads the output buffer of the KBC." alt="" coords="309,31,426,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="262,41,294,41,294,47,262,47"/>
+<area shape="rect" id="Node000004" href="$kbc_8c.html#a82999842ae6a8860abbc1e0829e17653" title="Reads the status of the KBC." alt="" coords="474,5,592,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="426,32,459,27,460,33,427,38"/>
+<area shape="rect" id="Node000005" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="640,31,730,57"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="427,41,625,41,625,47,427,47"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="592,26,625,31,625,37,592,31"/>
+</map>

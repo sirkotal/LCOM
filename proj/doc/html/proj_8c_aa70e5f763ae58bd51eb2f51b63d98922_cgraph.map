@@ -1,0 +1,15 @@
+<map id="collision" name="collision">
+<area shape="rect" id="Node000001" title="calculate if the player colides" alt="" coords="5,81,74,108"/>
+<area shape="rect" id="Node000002" href="$sprites_8c.html#a59c7cfb9c876f7fe5a39d437eff9e679" title="Create a sprite object." alt="" coords="122,5,218,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,78,120,42,129,37,131,42,123,46,64,83"/>
+<area shape="rect" id="Node000003" href="$sprites_8c.html#aa185567f4238c8f9ec452b809fa619f0" title="Draw a sprite object." alt="" coords="126,56,214,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,86,111,78,112,83,74,91"/>
+<area shape="rect" id="Node000006" href="$graphics_8c.html#aab0ee43a0f19c6eb0ac13b7b357649fc" title="Get the horizontal resolution." alt="" coords="131,107,209,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="74,99,117,107,116,112,73,104"/>
+<area shape="rect" id="Node000007" href="$graphics_8c.html#ae9c75eaa66222e9130dd1b299ae8b3e6" title="Get the vertical resolution." alt="" coords="132,157,208,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="64,106,123,143,131,148,129,152,120,148,61,111"/>
+<area shape="rect" id="Node000004" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="266,56,439,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="214,67,251,67,251,72,214,72"/>
+<area shape="rect" id="Node000005" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="487,56,596,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,67,472,67,472,72,440,72"/>
+</map>

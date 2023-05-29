@@ -1,0 +1,5 @@
+<map id="draw_xpm" name="draw_xpm">
+<area shape="rect" id="Node000001" title="Draw a sprite on the screen." alt="" coords="5,5,86,32"/>
+<area shape="rect" id="Node000002" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="134,5,242,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,16,119,16,119,21,86,21"/>
+</map>

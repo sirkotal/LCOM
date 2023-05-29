@@ -1,0 +1,7 @@
+<map id="draw_text" name="draw_text">
+<area shape="rect" id="Node000001" title="Draws text on the screen." alt="" coords="5,5,83,32"/>
+<area shape="rect" id="Node000002" href="$sprites_8c.html#a39fa6bc239a6493ea5c8774050b2f508" title="Draw a sprite object." alt="" coords="131,5,304,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,16,115,16,115,21,83,21"/>
+<area shape="rect" id="Node000003" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="352,5,460,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,16,337,16,337,21,305,21"/>
+</map>

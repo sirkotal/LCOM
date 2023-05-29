@@ -1,0 +1,7 @@
+<map id="rtc_check_binary" name="rtc_check_binary">
+<area shape="rect" id="Node000001" title="Checks if the RTC&#39;s counters are being incremented in binary mode." alt="" coords="5,5,126,32"/>
+<area shape="rect" id="Node000002" href="$rtc_8c.html#ad542c59f2f234f2befd0efbeb4193fb7" title="Sends a command to the RTC address register and reads the corresponding data from the RTC data regist..." alt="" coords="174,5,253,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,16,159,16,159,21,126,21"/>
+<area shape="rect" id="Node000003" href="$devices_2utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="301,5,391,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="253,16,286,16,286,21,253,21"/>
+</map>

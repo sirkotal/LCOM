@@ -1,0 +1,5 @@
+<map id="vg_draw_hline" name="vg_draw_hline">
+<area shape="rect" id="Node000001" title="lcf functions may not work properly in proj (if so add #include &lt;lcf/lab5.h&gt; or rewrite them)" alt="" coords="5,5,107,32"/>
+<area shape="rect" id="Node000002" href="$graphics_8c.html#a8ec0f71507e93d5fc5637dfe130857b4" title="Set the color of a pixel." alt="" coords="155,5,263,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,16,140,16,140,21,107,21"/>
+</map>
