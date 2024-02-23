@@ -1,6 +1,6 @@
 # LCOM Project
 
-LCOM project for group G01 of 2LEICO04.
+LCOM project for group G01 of 2LEIC04.
 
 
 Group members:
