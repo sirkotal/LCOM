@@ -1,6 +1,6 @@
-# LCOM Project
+# HELLCOMDIVERS
 
-2LEIC04 G01's LCOM Project.
+**HELLCOMDIVERS**, developed for the LCOM project.
 
 
 Group members:
